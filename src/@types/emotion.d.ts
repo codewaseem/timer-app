@@ -3,10 +3,10 @@ import emotionReact from "@emotion/react";
 declare module "@emotion/react" {
   export const { Global, css, ClassNames } = emotionReact;
   export interface Theme {
-    color: {
-      primary: string;
-      positive: string;
-      negative: string;
+    colors: {
+      sky: string;
+      object: string;
+      border: string;
     };
   }
 }
