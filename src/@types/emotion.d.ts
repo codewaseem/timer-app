@@ -4,9 +4,12 @@ declare module "@emotion/react" {
   export const { Global, css, ClassNames } = emotionReact;
   export interface Theme {
     colors: {
-      sky: string;
-      object: string;
-      border: string;
+      background: string;
+      cardBackground: string;
+      topBG: string;
+      textAccent: string;
+      text: string;
+      toggle: string;
     };
   }
 }

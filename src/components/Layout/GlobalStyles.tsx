@@ -1,40 +1,19 @@
 import React from "react";
 import { Global, css } from "@emotion/react";
 import { normalize } from "polished";
-import livvicBold from "~/assets/fonts/Livvic-Bold.ttf";
-import livvicSemiBold from "~/assets/fonts/Livvic-SemiBold.ttf";
-import livvicMediumItalic from "~/assets/fonts/Livvic-MediumItalic.ttf";
-import livvicRegular from "~/assets/fonts/Livvic-Regular.ttf";
 
 const GlobalStyles: React.FC = () => {
   return (
     <Global
       styles={css`
         ${normalize()}
-        @font-face {
-          font-family: "Levvic Bold";
-          src: url(${livvicBold}) format("truetype");
-        }
-
-        @font-face {
-          font-family: "Levvic SemiBold";
-          src: url(${livvicSemiBold}) format("truetype");
-        }
-        @font-face {
-          font-family: "Levvic Medium Italic";
-          src: url(${livvicMediumItalic}) format("truetype");
-        }
-
-        @font-face {
-          font-family: "Levvic";
-          src: url(${livvicRegular}) format("truetype");
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
         html,
         body {
-          font-family: "Levvic SemiBold", serif;
+          font-family: "Inter", sans-serif;
           box-sizing: border-box;
-          font-size: 16px;
+          font-size: 14px;
         }
 
         body *,

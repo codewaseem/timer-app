@@ -2,28 +2,22 @@ import React, { ReactNode, useState, useEffect } from "react";
 import { ThemeProvider } from "emotion-theming";
 
 import theme from "~/theme";
-
-function setCSSVariables(variables: { [key: string]: string }) {
-  const keys = Object.keys(variables);
-  keys.forEach((key) => {
-    document.documentElement.style.setProperty(`--${key}`, variables[key]);
-  });
-}
+import { setCSSVariables } from "../../utils/styles";
 
 /**
  * This component exists to provide a reusable application wrapper for use in Gatsby API's, testing, etc.
  */
 const App = ({ element }: { element: ReactNode }) => {
-  const [themeName, setThemeName] = useState<keyof typeof theme>("day");
+  const [themeName, setThemeName] = useState<keyof typeof theme>("dark");
   const [currentTheme, setTheme] = useState(theme[themeName]);
 
   const toggleTheme = () => {
-    if (themeName === "day") {
-      setTheme(theme.night);
-      setThemeName("night");
+    if (themeName === "light") {
+      setTheme(theme.dark);
+      setThemeName("dark");
     } else {
-      setTheme(theme.day);
-      setThemeName("day");
+      setTheme(theme.light);
+      setThemeName("light");
     }
   };
 
@@ -35,7 +29,6 @@ const App = ({ element }: { element: ReactNode }) => {
     <ThemeProvider
       theme={{
         ...currentTheme,
-        themeName: themeName === "day" ? "Sun" : "Moon",
         toggleTheme,
       }}
     >

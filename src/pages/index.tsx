@@ -1,45 +1,50 @@
 import React from "react";
 import { injectIntl, InjectedIntlProps } from "gatsby-plugin-intl";
 import styled from "@emotion/styled";
-import { useTheme } from "emotion-theming";
 import { Layout } from "~/components/Layout";
 import { SEO } from "~/components/SEO";
+import Header from "../components/Header";
 
-const Sky = styled.div`
-  height: 100vh;
-  width: 100vw;
-  background-color: ${({ theme }) => theme.colors.sky};
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  transition: background-color 3s ease;
+// const cssVariables = {
+//   paddingTop: `40px`,
+//   paddingSide: `25px`,
+//   paddingBottom: `45px`,
+//   gapLarge: `25px`,
+//   gapSmall: `15px`,
+//   limeGreen: `hsl(163, 72%, 41%)`,
+//   brightRed: `hsl(356, 69%, 56%)`,
+//   facebook: `hsl(195, 100%, 50%)`,
+//   twitter: `hsl(203, 89%, 53%)`,
+//   instagram: `linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%))`,
+//   youtube: `hsl(348, 97%, 39%)`,
+// };
+
+const Page = styled.div`
+  --container-padding-top: 40px;
+  --container-padding-side: 25px;
+  --container-padding-bottom: 45px;
+  --card-gap-large: 25px;
+  --card-gap-small: 15px;
+  --lime-green: hsl(163, 72%, 41%);
+  --bright-red: hsl(356, 69%, 56%);
+  --facebook: hsl(195, 100%, 50%);
+  --twitter: hsl(203, 89%, 53%);
+  --instagram: linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+  --youtube: hsl(348, 97%, 39%);
+
+
+
+  background-color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
 `;
-
-const SkyObject = styled.div`
-  height: 400px;
-  width: 400px;
-  border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.object};
-  cursor: pointer;
-  border: 20px solid ${({ theme }) => theme.colors.border};
-
-  &:hover {
-    border-width: 10px;
-  }
-`;
-
-const Text = styled.h1``;
 
 const Index: React.FC<InjectedIntlProps> = () => {
-  const { themeName, toggleTheme } = useTheme();
   return (
     <Layout>
       <SEO />
-      <Sky>
-        <Text>{themeName} is shining</Text>
-        <SkyObject onClick={toggleTheme} />
-      </Sky>
+      <Page>
+        <Header />
+      </Page>
     </Layout>
   );
 };
