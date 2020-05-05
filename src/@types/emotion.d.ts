@@ -1,5 +1,14 @@
 import emotionReact from "@emotion/react";
 
+export type StaticColors = {
+  limeGreen: string;
+  brightRed: string;
+  facebook: string;
+  twitter: string;
+  instagram: string;
+  youtube: string;
+};
+
 declare module "@emotion/react" {
   export const { Global, css, ClassNames } = emotionReact;
   export interface Theme {
@@ -11,14 +20,7 @@ declare module "@emotion/react" {
       text: string;
       toggle: string;
     };
-    staticColors: {
-      limeGreen: string;
-      brightRed: string;
-      facebook: string;
-      twitter: string;
-      instagram: string;
-      youtube: string;
-    };
+    staticColors: StaticColors;
   }
 }
 
