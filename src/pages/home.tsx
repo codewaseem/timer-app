@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { injectIntl, InjectedIntlProps } from "gatsby-plugin-intl";
 import styled from "@emotion/styled";
 import { Layout } from "~/components/Layout";
 import { SEO } from "~/components/SEO";
 import { StaticColors } from "../@types/emotion";
 import { WorkIcon } from "../components/Icons/Index";
+import Timer from "../components/Timer";
 
 const Container = styled.div`
   padding: 36px;
@@ -44,8 +45,8 @@ const Card = styled.div<{
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   padding: 20px;
   display: grid;
-  grid-gap: 15px;
-  // justify-items: center;
+  grid-gap: 20px;
+  justify-items: center;
 `;
 
 const Title = styled.div`
@@ -56,33 +57,11 @@ const Title = styled.div`
   font-size: 1.2rem;
   color: ${({ theme }) => theme.colors.textAccent};
 `;
-const Time = styled.div`
-  font-size: 36px;
-  line-height: 1;
-  font-weight: bold;
-`;
-const Hours = styled.span``;
-const Minutes = styled.span``;
-const Seconds = styled.span`
-  font-size: 1rem;
-  font-weight: normal;
-  vertical-align: 3px;
-  color: ${({ theme }) => theme.colors.textAccent};
-`;
-
-const MainContent = styled.div`
-  text-align: center;
-`;
-
-const Summary = styled.p`
-  color: ${({ theme }) => theme.colors.textAccent};
-  opacity: 0.8;
-  font-size: 0.9rem;
-  text-align: center;
-`;
-const Timer = styled.div``;
 
 const Index: React.FC<InjectedIntlProps> = () => {
+  const [isChecked, setChecked] = useState(false);
+
+  const toggleChecked = () => setChecked((checked) => !checked);
   return (
     <Layout>
       <SEO />
@@ -93,15 +72,15 @@ const Index: React.FC<InjectedIntlProps> = () => {
             <Title>
               <WorkIcon /> Work
             </Title>
-            <MainContent>
-              <Time>
-                <Hours>00</Hours>
-                <Minutes>:30</Minutes>
-                <Seconds>:59</Seconds>
-              </Time>
-              <Summary>Worked Today</Summary>
-            </MainContent>
-            <Timer>f</Timer>
+            <Timer
+              isActive={isChecked}
+              toggleActive={toggleChecked}
+              time={{
+                hours: 0,
+                minutes: 5,
+                seconds: 25,
+              }}
+            />
           </Card>
           <Card />
           <Card />
