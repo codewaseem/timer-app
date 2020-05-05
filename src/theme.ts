@@ -1,5 +1,14 @@
 import { Theme } from "@emotion/react";
 
+const staticColors = {
+  limeGreen: `hsl(163, 72%, 41%)`,
+  brightRed: `hsl(356, 69%, 56%)`,
+  facebook: `hsl(195, 100%, 50%)`,
+  twitter: `hsl(203, 89%, 53%)`,
+  instagram: `linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%))`,
+  youtube: `hsl(348, 97%, 39%)`,
+};
+
 const theme: { light: Theme; dark: Theme } = {
   light: {
     colors: {
@@ -10,6 +19,7 @@ const theme: { light: Theme; dark: Theme } = {
       textAccent: "hsl(228, 12%, 44%)",
       text: "#2A292D",
     },
+    staticColors,
   },
   dark: {
     colors: {
@@ -21,6 +31,7 @@ const theme: { light: Theme; dark: Theme } = {
       textAccent: "hsl(228, 34%, 66%)",
       text: "white",
     },
+    staticColors,
   },
 };
 

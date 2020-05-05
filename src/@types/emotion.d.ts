@@ -11,6 +11,14 @@ declare module "@emotion/react" {
       text: string;
       toggle: string;
     };
+    staticColors: {
+      limeGreen: string;
+      brightRed: string;
+      facebook: string;
+      twitter: string;
+      instagram: string;
+      youtube: string;
+    };
   }
 }
 
