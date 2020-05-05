@@ -12,6 +12,7 @@ const Time = styled.div`
   font-size: 44px;
   line-height: 1;
   font-weight: bold;
+  color: ${({ theme }) => theme.colors.text};
 `;
 const Hours = styled.span``;
 const Minutes = styled.span``;
