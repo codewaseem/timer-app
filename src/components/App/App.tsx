@@ -8,7 +8,7 @@ import { setCSSVariables } from "../../utils/styles";
  * This component exists to provide a reusable application wrapper for use in Gatsby API's, testing, etc.
  */
 const App = ({ element }: { element: ReactNode }) => {
-  const [themeName, setThemeName] = useState<keyof typeof theme>("dark");
+  const [themeName, setThemeName] = useState<keyof typeof theme>("light");
   const [currentTheme, setTheme] = useState(theme[themeName]);
 
   const toggleTheme = () => {

@@ -3,48 +3,49 @@ import { injectIntl, InjectedIntlProps } from "gatsby-plugin-intl";
 import styled from "@emotion/styled";
 import { Layout } from "~/components/Layout";
 import { SEO } from "~/components/SEO";
-import Header from "../components/Header";
+import FormField from "../components/FormField";
 
-// const cssVariables = {
-//   paddingTop: `40px`,
-//   paddingSide: `25px`,
-//   paddingBottom: `45px`,
-//   gapLarge: `25px`,
-//   gapSmall: `15px`,
-//   limeGreen: `hsl(163, 72%, 41%)`,
-//   brightRed: `hsl(356, 69%, 56%)`,
-//   facebook: `hsl(195, 100%, 50%)`,
-//   twitter: `hsl(203, 89%, 53%)`,
-//   instagram: `linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%))`,
-//   youtube: `hsl(348, 97%, 39%)`,
-// };
-
-const Page = styled.div`
-  --container-padding-top: 40px;
-  --container-padding-side: 25px;
-  --container-padding-bottom: 45px;
-  --card-gap-large: 25px;
-  --card-gap-small: 15px;
-  --lime-green: hsl(163, 72%, 41%);
-  --bright-red: hsl(356, 69%, 56%);
-  --facebook: hsl(195, 100%, 50%);
-  --twitter: hsl(203, 89%, 53%);
-  --instagram: linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%));
-  --youtube: hsl(348, 97%, 39%);
-
-
-
-  background-color: ${({ theme }) => theme.colors.background};
-  color: ${({ theme }) => theme.colors.text};
+const LoginFormContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > form {
+    max-width: 450px;
+    min-width: 300px;
+    flex: 1;
+    display: grid;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 48px 36px;
+    justify-items: center;
+    border-radius: 10px;
+    h3 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.4rem;
+    }
+  }
+`;
+const FormSubmitButton = styled.button`
+  padding: 16px 24px;
+  background: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.background};
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: 0;
 `;
 
 const Index: React.FC<InjectedIntlProps> = () => {
   return (
     <Layout>
       <SEO />
-      <Page>
-        <Header />
-      </Page>
+      <LoginFormContainer>
+        <form>
+          <h3>Login</h3>
+          <FormField type="email" label="Email" name="email" />
+          <FormField type="password" label="Password" name="password" />
+          <FormSubmitButton type="button">Login</FormSubmitButton>
+        </form>
+      </LoginFormContainer>
     </Layout>
   );
 };
