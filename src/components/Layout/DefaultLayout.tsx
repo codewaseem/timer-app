@@ -9,9 +9,10 @@ const Container = styled.div`
   min-width: 100vw;
   max-height: 100vh;
   max-width: 100vw;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: relative;
+  background: ${({ theme }) => theme.colors.background};
 `;
 
 const DefaultLayout: React.FC<Props> = ({ children }) => {

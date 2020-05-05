@@ -1,5 +1,5 @@
 import React from "react";
-import { injectIntl, InjectedIntlProps } from "gatsby-plugin-intl";
+import { injectIntl, InjectedIntlProps, Link } from "gatsby-plugin-intl";
 import styled from "@emotion/styled";
 import { Layout } from "~/components/Layout";
 import { SEO } from "~/components/SEO";
@@ -9,6 +9,7 @@ const LoginFormContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
   > form {
     max-width: 450px;
     min-width: 300px;
@@ -25,13 +26,14 @@ const LoginFormContainer = styled.div`
     }
   }
 `;
-const FormSubmitButton = styled.button`
+const FormSubmitButton = styled(Link)`
   padding: 16px 24px;
   background: ${({ theme }) => theme.colors.text};
   color: ${({ theme }) => theme.colors.background};
   font-weight: bold;
   font-size: 1.2rem;
   border: 0;
+  text-decoration: none;
 `;
 
 const Index: React.FC<InjectedIntlProps> = () => {
@@ -43,7 +45,7 @@ const Index: React.FC<InjectedIntlProps> = () => {
           <h3>Login</h3>
           <FormField type="email" label="Email" name="email" />
           <FormField type="password" label="Password" name="password" />
-          <FormSubmitButton type="button">Login</FormSubmitButton>
+          <FormSubmitButton to="/home">Login</FormSubmitButton>
         </form>
       </LoginFormContainer>
     </Layout>
